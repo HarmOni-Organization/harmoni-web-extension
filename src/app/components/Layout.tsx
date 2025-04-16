@@ -4,6 +4,7 @@ import { selectIsAuthenticated, logout } from '../features/auth/authSlice';
 import { useUI } from '../uiContext';
 import { useFeatures } from '../featureRegistry';
 import { HiMenuAlt2, HiX, HiLogout } from 'react-icons/hi';
+import { IconWrapper } from './IconWrapper';
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -58,7 +59,11 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
               className="text-indigo-600 hover:text-indigo-800"
               aria-label="Toggle sidebar"
             >
-              {sidebarExpanded ? <HiX size={24} /> : <HiMenuAlt2 size={24} />}
+              {sidebarExpanded ? (
+                <IconWrapper icon={HiX} size={24} />
+              ) : (
+                <IconWrapper icon={HiMenuAlt2} size={24} />
+              )}
             </button>
             <h1 className="text-xl font-bold text-indigo-600">HarmOni</h1>
           </div>
@@ -67,7 +72,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             className="flex items-center gap-1 bg-white hover:bg-gray-50 text-gray-700 px-3 py-1.5 rounded border border-gray-300 transition-colors"
             aria-label="Logout"
           >
-            <HiLogout className="text-gray-500" />
+            <IconWrapper icon={HiLogout} className="text-gray-500" />
             <span>Logout</span>
           </button>
         </div>

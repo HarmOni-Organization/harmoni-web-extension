@@ -53,6 +53,7 @@ export const register = createAsyncThunk(
       }
       return user;
     } catch (error: any) {
+      logger.error('Error registering user:', error);
       return rejectWithValue(error.response?.data?.message || 'Registration failed');
     }
   }

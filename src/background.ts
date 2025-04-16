@@ -69,3 +69,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
   }
 });
+
+// Add an empty export to make this file a module
+export {};
